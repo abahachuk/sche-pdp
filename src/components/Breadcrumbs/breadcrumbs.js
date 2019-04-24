@@ -44,8 +44,8 @@ class Breadcrumbs extends LitElement {
     `;
   }
 
-	render() {
-		return html`
+  render() {
+    return html`
       <nav class="breadcrumbs">
         <ul class="breadcrumbs_list">
           <li class="breadcrumbs_item"><a class="breadcrumbs_link" href="">home</a></li>
@@ -56,6 +56,6 @@ class Breadcrumbs extends LitElement {
         </ul>
       </nav>
     `;
-	}
+  }
 }
 customElements.define('x-breadcrumbs', Breadcrumbs);

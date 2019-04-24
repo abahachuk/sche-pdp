@@ -83,7 +83,7 @@ class RelatedProducts extends LitElement {
     `;
   }
 
-	render() {
+  render() {
     return html`
       <div class="related-products">
         <h2 class="related-products_title">
@@ -153,7 +153,7 @@ class RelatedProducts extends LitElement {
         </ul>
       </div>
     `;
-    }
+  }
 }
 
 customElements.define('x-related-products', RelatedProducts);

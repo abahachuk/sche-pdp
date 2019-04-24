@@ -60,7 +60,7 @@ class Tabs extends LitElement {
     `;
   }
 
-	render() {
+  render() {
     return html`
       <div class="tabs">
         <nav class="tabs_nav">
@@ -86,7 +86,7 @@ class Tabs extends LitElement {
         </div>
       </div>
     `;
-    }
+  }
 }
 
 customElements.define('x-tabs', Tabs);

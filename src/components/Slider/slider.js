@@ -59,7 +59,7 @@ class Slider extends LitElement {
     `;
   }
 
-	render() {
+  render() {
     return html`
       <div class="slider">
         <div class="slider_slides-wrapper">
@@ -77,7 +77,7 @@ class Slider extends LitElement {
         </div>
       </div>
     `;
-    }
+  }
 }
 
 customElements.define('x-slider', Slider);

@@ -41,8 +41,8 @@ class Documents extends LitElement {
     `;
   }
 
-	render() {
-		return html`
+  render() {
+    return html`
       <div class="documents">
         <ul class="documents_list">
           <li class="documents_item"><a class="documents_link" href="">Product Datasheet</a></li>
@@ -51,6 +51,6 @@ class Documents extends LitElement {
         </ul>
       </div>
     `;
-	}
+  }
 }
 customElements.define('x-documents', Documents);

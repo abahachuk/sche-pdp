@@ -1,12 +1,9 @@
 import { LitElement, html, css } from 'lit-element';
-import { changeProductTitle } from '../../redux/actions';
-import { connect } from 'pwa-helpers';
-import { store } from '../../redux/store.js';
-import { getProductTitle } from '../../redux/reducer';
 
 import '../Slider';
 
-class Product extends connect(store)(LitElement) {
+class Product extends LitElement {
+
   static get styles() {
     return css`
       .product {
@@ -107,22 +104,18 @@ class Product extends connect(store)(LitElement) {
     `;
   }
 
-	static get properties() {
-		return {
-			title: { type: String },
-		};
-	}
+  static get properties() {
+    return {
+      product: { type: Object },
+    };
+  }
 
-	stateChanged(state) {
-		this.title = getProductTitle(state);
-	}
+  constructor() {
+    super();
+    this.product = {};
+  }
 
-	changeProductName(e) {
-		const title = e.target.value;
-		store.dispatch(changeProductTitle(title));
-	}
-
-	render() {
+  render() {
     return html`
       <div class="product">
         <div class="product_card">
@@ -151,9 +144,10 @@ class Product extends connect(store)(LitElement) {
             </div>
           </div>
         </div>
+				<a href="/product-cart" >cart</a>
       </div>
     `;
-    }
+  }
 }
 
 customElements.define('x-product', Product);

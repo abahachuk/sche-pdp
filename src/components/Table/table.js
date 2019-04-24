@@ -36,7 +36,7 @@ class Table extends LitElement {
     `;
   }
 
-	render() {
+  render() {
     return html`
       <table class="table">
         <caption class="table_caption">Main</caption>
@@ -58,7 +58,7 @@ class Table extends LitElement {
         </tr>
       </table>
     `;
-    }
+  }
 }
 
 customElements.define('x-table', Table);
