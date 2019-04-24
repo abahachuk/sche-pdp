@@ -1,8 +1,8 @@
 import { connectRouter } from 'lit-redux-router';
 
-import './components/Product';
-import './components/App';
-import './styles.css';
+export * from './components/Product';
+export * from './components/App';
+export * from './components/Test';
 
 import { store } from './redux/store';
 

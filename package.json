@@ -1,9 +1,10 @@
 {
-  "name": "sche-pdp-lit",
+  "name": "schneider-components",
   "version": "1.0.0",
   "description": "POC",
   "main": "index.js",
   "scripts": {
+    "build": "rollup -c",
     "webpack": "webpack --env.mode production",
     "webpack-dev-server": "webpack-dev-server --history-api-fallback --port 9000",
     "dev": "npm run webpack-dev-server -- --env.mode development",
@@ -13,6 +14,9 @@
     "type": "git",
     "url": "git+https://github.com/abahachuk/sche-pdp-lit.git"
   },
+  "files": [
+    "build"
+  ],
   "author": "",
   "license": "ISC",
   "bugs": {
@@ -44,6 +48,9 @@
     "lit-redux-router": "^0.8.4",
     "pwa-helpers": "^0.9.1",
     "redux": "^4.0.1",
-    "redux-actions": "^2.6.5"
+    "redux-actions": "^2.6.5",
+    "rollup": "^1.10.1",
+    "rollup-plugin-commonjs": "^9.3.4",
+    "rollup-plugin-node-resolve": "^4.2.3"
   }
 }
