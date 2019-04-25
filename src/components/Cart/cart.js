@@ -1,6 +1,9 @@
 import { LitElement, html, css } from 'lit-element';
+import { getCartProducts } from '../../redux/reducer';
+import { connect } from 'pwa-helpers';
+import { store } from '../../redux/store.js';
 
-class Cart extends LitElement {
+class Cart extends connect(store)(LitElement) {
   static get styles() {
     return css`
     * {
@@ -253,96 +256,103 @@ class Cart extends LitElement {
 
   static get properties() {
     return {
-      product: {
-        type: Object
+      products: {
+        type: Array,
       },
     };
   }
 
+  stateChanged(store) {
+    console.log('store', store);
+    this.products = getCartProducts(store);
+    console.log('this.products', this.products);
+  }
+
   constructor() {
     super();
-    this.product = {};
+    this.products = [];
   }
 
   render() {
     return html `
-      <div class="main">
-        <div class="cart-pills__wrapper">
-            <ul class="cart-pills">
-                <li class="cart-pills__item selected">All Items</li>
-                <li class="cart-pills__item">Single Items</li>
-            </ul>
-        </div>
-        <div class="cart">
-            <div class="cart-table">
-                <div class="flex-table header">
-                    <div class="flex-row first">Name</div>
-                    <div class="flex-row second">Quantity</div>
-                    <div class="flex-row third">Subtotal</div>
-                </div>
-                <div class="flex-table row">
-                    <div class="flex-row first">
-                        <div class="flex-row__name-cell"><input type="checkbox" class="checkbox__input hidden"
-                                id="checkbox" readonly=""> <label for="checkbox"
-                                class="checkbox__label cart-table__checkbox"></label>
-                            <div class="product-wrapper"><a class="product__img" href="#"><img
-                                        src="https://download.schneider-electric.com/files?p_Doc_Ref=PF080604&amp;p_File_Type=rendition_113_png&amp;default_image=DefaultProductImage.png"
-                                        alt="Schneider Eletric ATV12H018M2 Picture"></a>
-                                <div class="product__info"><a class="product__link" href="#">ATV12H018M2</a>
-                                    <p class="product__description">variable speed drive ATV12 - 0.18kW - 0.25hp -
-                                        200..240V - 1ph</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex-row second">
-                        <div class="table-qty"><button class="table-qty__btn"><svg width="11" height="1"
-                                    class="table-qty__btn-icon">
-                                    <rect width="11" height="1" fill="currentColor"></rect>
-                                </svg></button> <input pattern="[0-9]*" class="table-qty__value" inputmode="numeric"
-                                value="1"> <button class="table-qty__btn"><svg width="11" height="11"
-                                    class="table-qty__btn-icon">
-                                    <rect width="1" height="11" transform="translate(5.000000, 0.000000)"
-                                        fill="currentColor"></rect>
-                                    <rect width="11" height="1" transform="translate(0.000000, 5.000000)"
-                                        fill="currentColor"></rect>
-                                </svg></button></div>
-                    </div>
-                    <div class="flex-row third">
-                        <div class="flex-row__subtotal"><span>184.62</span><span
-                                class="flex-row__subtotal-currency">USD</span>
-                            <figure class="delete-icon"><svg width="20" height="20" viewBox="0 0 20 20" class="icon"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                        <g transform="translate(1.000000, 0.000000)" stroke="currentColor"
-                                            stroke-linecap="round" stroke-linejoin="round">
-                                            <path
-                                                d="M1.9287,5.505 L1.9287,15.729 C1.9287,16.707 2.7327,17.5 3.7237,17.5 L12.2757,17.5 C13.2677,17.5 14.0717,16.707 14.0717,15.729 L14.0717,5.505"
-                                                id="Stroke-6"></path>
-                                            <polygon id="Stroke-7"
-                                                points="0.31 5.357 15.691 5.357 15.691 2.928 0.31 2.928"></polygon>
-                                            <polyline id="Stroke-8"
-                                                points="5.1665 2.836 5.1665 0.5 10.8335 0.5 10.8335 2.836"></polyline>
-                                            <path d="M5.1665,15.072 L5.1665,7.786" id="Stroke-9"></path>
-                                            <path d="M10.8335,15.072 L10.8335,7.786" id="Stroke-10"></path>
-                                            <path d="M8,15.072 L8,7.786" id="Stroke-11"></path>
-                                        </g>
-                                    </g>
-                                </svg></figure>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="cart-sidebar__wrapper">
-                <div class="cart-sidebar">
-                    <div class="cart-sidebar__section"><span>Total items:</span><span>1</span></div>
-                    <div class="cart-sidebar__section total"><span>184.62</span><span>USD</span></div><button
-                        class="cart-sidebar__button-buy">Where to Buy</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    `;
+      ${this.products.map(product => html`
+        <div class="main">
+          <div class="cart-pills__wrapper">
+              <ul class="cart-pills">
+                  <li class="cart-pills__item selected">All Items</li>
+                  <li class="cart-pills__item">Single Items</li>
+              </ul>
+          </div>
+          <div class="cart">
+              <div class="cart-table">
+                  <div class="flex-table header">
+                      <div class="flex-row first">Name</div>
+                      <div class="flex-row second">Quantity</div>
+                      <div class="flex-row third">Subtotal</div>
+                  </div>
+                  <div class="flex-table row">
+                      <div class="flex-row first">
+                          <div class="flex-row__name-cell"><input type="checkbox" class="checkbox__input hidden"
+                                  id="checkbox" readonly=""> <label for="checkbox"
+                                  class="checkbox__label cart-table__checkbox"></label>
+                              <div class="product-wrapper"><a class="product__img" href="#"><img
+                                          src="https://download.schneider-electric.com/files?p_Doc_Ref=PF080604&amp;p_File_Type=rendition_113_png&amp;default_image=DefaultProductImage.png"
+                                          alt="Schneider Eletric ATV12H018M2 Picture"></a>
+                                  <div class="product__info"><a class="product__link" href="#">ATV12H018M2</a>
+                                      <p class="product__description">variable speed drive ATV12 - 0.18kW - 0.25hp -
+                                          200..240V - 1ph</p>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="flex-row second">
+                          <div class="table-qty"><button class="table-qty__btn"><svg width="11" height="1"
+                                      class="table-qty__btn-icon">
+                                      <rect width="11" height="1" fill="currentColor"></rect>
+                                  </svg></button> <input pattern="[0-9]*" class="table-qty__value" inputmode="numeric"
+                                  value="1"> <button class="table-qty__btn"><svg width="11" height="11"
+                                      class="table-qty__btn-icon">
+                                      <rect width="1" height="11" transform="translate(5.000000, 0.000000)"
+                                          fill="currentColor"></rect>
+                                      <rect width="11" height="1" transform="translate(0.000000, 5.000000)"
+                                          fill="currentColor"></rect>
+                                  </svg></button></div>
+                      </div>
+                      <div class="flex-row third">
+                          <div class="flex-row__subtotal"><span>184.62</span><span
+                                  class="flex-row__subtotal-currency">USD</span>
+                              <figure class="delete-icon"><svg width="20" height="20" viewBox="0 0 20 20" class="icon"
+                                      xmlns="http://www.w3.org/2000/svg">
+                                      <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                          <g transform="translate(1.000000, 0.000000)" stroke="currentColor"
+                                              stroke-linecap="round" stroke-linejoin="round">
+                                              <path
+                                                  d="M1.9287,5.505 L1.9287,15.729 C1.9287,16.707 2.7327,17.5 3.7237,17.5 L12.2757,17.5 C13.2677,17.5 14.0717,16.707 14.0717,15.729 L14.0717,5.505"
+                                                  id="Stroke-6"></path>
+                                              <polygon id="Stroke-7"
+                                                  points="0.31 5.357 15.691 5.357 15.691 2.928 0.31 2.928"></polygon>
+                                              <polyline id="Stroke-8"
+                                                  points="5.1665 2.836 5.1665 0.5 10.8335 0.5 10.8335 2.836"></polyline>
+                                              <path d="M5.1665,15.072 L5.1665,7.786" id="Stroke-9"></path>
+                                              <path d="M10.8335,15.072 L10.8335,7.786" id="Stroke-10"></path>
+                                              <path d="M8,15.072 L8,7.786" id="Stroke-11"></path>
+                                          </g>
+                                      </g>
+                                  </svg></figure>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="cart-sidebar__wrapper">
+                  <div class="cart-sidebar">
+                      <div class="cart-sidebar__section"><span>Total items:</span><span>1</span></div>
+                      <div class="cart-sidebar__section total"><span>184.62</span><span>USD</span></div><button
+                          class="cart-sidebar__button-buy">Where to Buy</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+      `)}`;
   }
 }
 

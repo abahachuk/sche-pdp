@@ -4,11 +4,15 @@ import {
   combineReducers,
 } from 'redux';
 import { lazyReducerEnhancer } from 'pwa-helpers';
-import reducer from './reducer.js';
+import cart from './reducer.js';
 
 const compose = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || origCompose;
 
 export const store = createStore(
-  reducer,
+  (state, action) => state,
   compose(lazyReducerEnhancer(combineReducers))
 );
+
+store.addReducers({
+  cart,
+});

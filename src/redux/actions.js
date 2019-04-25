@@ -1,7 +1,7 @@
 import { createActions } from 'redux-actions';
 
-export const CHANGE_PRODUCT_TITLE = 'CHANGE_PRODUCT_TITLE';
+export const ADD_TO_CART = 'ADD_TO_CART';
 
-export const { changeProductTitle } = createActions({
-  CHANGE_PRODUCT_TITLE: (title = '') => ({ title }),
+export const { addToCart } = createActions({
+  ADD_TO_CART: product => product,
 });

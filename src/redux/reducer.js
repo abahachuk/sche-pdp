@@ -1,18 +1,22 @@
 import { handleActions } from 'redux-actions';
-import { CHANGE_PRODUCT_TITLE } from './actions';
-
-const defaultState = { title: 'title' };
+const defaultState = { products: [] };
 
 const reducer = handleActions(
   {
-    CHANGE_PRODUCT_TITLE: (
+    ADD_TO_CART: (
       state,
-      { payload: { title } }
-    ) => ({ ...state, title }),
+      { payload: product }
+    ) => ({
+      ...state,
+      products: [
+        ...state.products,
+        product,
+      ],
+    }),
   },
   defaultState,
 );
 
-export const getProductTitle = state => state.title;
+export const getCartProducts = state => state.cart.products;
 
 export default reducer;

@@ -8,7 +8,8 @@
     "webpack": "webpack --env.mode production",
     "webpack-dev-server": "webpack-dev-server --history-api-fallback --port 9000",
     "dev": "npm run webpack-dev-server -- --env.mode development",
-    "lint": "eslint index.js"
+    "lint": "eslint index.js",
+    "server": "nodemon ./server.js --inspect=0.0.0.0:9229 server.js"
   },
   "repository": {
     "type": "git",
@@ -34,6 +35,7 @@
     "eslint": "^5.16.0",
     "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^0.6.0",
+    "nodemon": "^1.18.11",
     "path": "^0.12.7",
     "style-loader": "^0.23.1",
     "webpack": "^4.30.0",
@@ -43,6 +45,7 @@
   },
   "dependencies": {
     "@webcomponents/webcomponentsjs": "^2.2.10",
+    "express": "^4.16.4",
     "lit-element": "^2.1.0",
     "lit-html": "^1.0.0",
     "lit-redux-router": "^0.8.4",

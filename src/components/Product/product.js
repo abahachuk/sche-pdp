@@ -1,8 +1,11 @@
 import { LitElement, html, css } from 'lit-element';
+import { addToCart } from '../../redux/actions';
+import { connect } from 'pwa-helpers';
+import { store } from '../../redux/store.js';
 
 import '../Slider';
 
-class Product extends LitElement {
+class Product extends connect(store)(LitElement) {
 
   static get styles() {
     return css`
@@ -106,13 +109,29 @@ class Product extends LitElement {
 
   static get properties() {
     return {
-      product: { type: Object },
+      name: { type: String },
+      description: { type: String },
+      price: { type: Number },
+      currency: { type: String },
     };
   }
 
   constructor() {
     super();
-    this.product = {};
+    this.name = '';
+    this.description = '';
+    this.price = 0;
+    this.currency = '';
+  }
+
+  addToCart() {
+
+    store.dispatch(addToCart({
+      name: this.name,
+      description: this.description,
+      price: this.price,
+      currency: this.currency,
+    }));
   }
 
   render() {
@@ -124,9 +143,10 @@ class Product extends LitElement {
           </div>
           <div class="product_info">
             <a class="product_view-all-link" href="">View all EVlink private company's car park</a>
-            <p class="product_id">EVF2S22P02</p>
-            <p class="product_description">EVlink PARKING Floor Standing 22KW 1xT2 EV CHARGING STATION</p>
+            <p class="product_id">${this.name}</p>
+            <p class="product_description">${this.description}</p>
             <a class="product_show-more-characteristics-link" href="">Show more characteristics</a>
+            <button @click=${this.addToCart}>Add to cart</button>
           </div>
           <div class="product_additional-info">
             <div class="product_info-box">
@@ -137,14 +157,14 @@ class Product extends LitElement {
                         Price
                       </div>
                       <div class="product_info-box-item-value">
-                        <b>184.62 USD</b>
+                        <b>${this.price} ${this.currency}</b>
                       </div>
                     </li>
                 </div>
             </div>
           </div>
         </div>
-				<a href="/product-cart" >cart</a>
+        <div><a href="/product-cart" >GO to cart</a></div>
       </div>
     `;
   }
