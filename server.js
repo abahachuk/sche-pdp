@@ -10,15 +10,17 @@ app.use(function (req, res, next) {
   next();
 });
 
-// app.use('/dist', express.static(path.join(__dirname, 'dist')));
-// app.use(express.static(path.join(__dirname, '/')));
-
-app.get('/product', function(req, res) {
+app.get('/api/product', function(req, res) {
   const mock = require('./data.json');
   res.json(mock);
 });
 
-app.use('/scripts', express.static(path.join(__dirname, '/node_modules/')));
+// app.use('/scripts', express.static(path.join(__dirname, '/node_modules/')));
+app.use(express.static(path.join(__dirname, '/dist')));
+
+app.get('*', function(req, res) {
+  res.sendFile(path.join(__dirname, 'dist/index.html'));
+});
 
 app.listen(PORT, function () {
   console.log('Example app listening on port 5000!');

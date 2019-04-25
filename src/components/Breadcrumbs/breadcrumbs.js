@@ -41,6 +41,10 @@ class Breadcrumbs extends LitElement {
         font-size: 12px;
         line-height: 20px;
       }
+
+      .breadcrumbs_link:hover {
+        text-decoration: underline;
+      }
     `;
   }
 
@@ -48,11 +52,10 @@ class Breadcrumbs extends LitElement {
     return html`
       <nav class="breadcrumbs">
         <ul class="breadcrumbs_list">
-          <li class="breadcrumbs_item"><a class="breadcrumbs_link" href="">home</a></li>
-          <li class="breadcrumbs_item"><a class="breadcrumbs_link" href="">home</a></li>
-          <li class="breadcrumbs_item"><a class="breadcrumbs_link" href="">home</a></li>
-          <li class="breadcrumbs_item"><a class="breadcrumbs_link" href="">home</a></li>
-          <li class="breadcrumbs_item"><a class="breadcrumbs_link" href="">home</a></li>
+          <li class="breadcrumbs_item"><a class="breadcrumbs_link" href="">All Products</a></li>
+          <li class="breadcrumbs_item"><a class="breadcrumbs_link" href="">Industrial Automation and Control</a></li>
+          <li class="breadcrumbs_item"><a class="breadcrumbs_link" href="">Variable Speed Drives and Soft Starters</a></li>
+          <li class="breadcrumbs_item"><a class="breadcrumbs_link" href="">Machine Drives</a></li>
         </ul>
       </nav>
     `;

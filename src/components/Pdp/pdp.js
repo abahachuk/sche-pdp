@@ -4,10 +4,9 @@ import '../Breadcrumbs';
 import '../Product';
 import '../Related-products';
 import '../Documents';
-import '../Tabs';
+import '../Product-characteristics';
 
 class Pdp extends LitElement {
-
   static get properties() {
     return {
       product: { type: Object },
@@ -22,15 +21,10 @@ class Pdp extends LitElement {
   render() {
     return html`
       <x-breadcrumbs></x-breadcrumbs>
-      <x-product
-        name=${this.product.name}
-        description=${this.product.description}
-        price=${this.product.price}
-        currency=${this.product.currency}
-      ></x-product>
-      <x-related-products></x-related-products>
-      <x-documents></x-documents>
-      <x-tabs></x-tabs>
+      <x-product .product=${this.product}></x-product>
+      <x-related-products .product=${this.product}></x-related-products>
+      <x-documents .product=${this.product}></x-documents>
+      <x-product-characteristics .product=${this.product}></x-product-characteristics>
     `;
   }
 }

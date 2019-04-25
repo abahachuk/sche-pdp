@@ -7,7 +7,7 @@ class App extends LitElement {
   }
 
   async getMockData() {
-    const data = await fetch('http://localhost:5000/product');
+    const data = await fetch('http://localhost:5000/api/product');
 
     return await data.json();
   }
@@ -25,7 +25,7 @@ class App extends LitElement {
   render() {
     return html`
       <div>
-        <lit-route path="/product"><x-pdp .product=${this.product}></x-pdp></lit-route>
+        <lit-route class="app" path="/product"><x-pdp .product=${this.product}></x-pdp></lit-route>
         <lit-route path="/product-cart"><x-cart></x-cart></lit-route>
       </div>
     `;

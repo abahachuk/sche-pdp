@@ -1,6 +1,12 @@
 import { LitElement, html, css } from 'lit-element';
 
 class Slider extends LitElement {
+  static get properties() {
+    return {
+      product: { type: Object },
+    };
+  }
+
   static get styles() {
     return css`
       .slider {
@@ -64,13 +70,13 @@ class Slider extends LitElement {
       <div class="slider">
         <div class="slider_slides-wrapper">
           <ul class="slider_slides-list">
-            <li class="slider_slides-item slider_slides-item__active"><img class="slider_slides-item-image" src="https://img.youtube.com/vi/855ObNTgD1E/0.jpg"></li>
-            <li class="slider_slides-item"><img class="slider_slides-item-image" src="https://img.youtube.com/vi/855ObNTgD1E/0.jpg"></li>
-            <li class="slider_slides-item"><img class="slider_slides-item-image" src="https://img.youtube.com/vi/855ObNTgD1E/0.jpg"></li>
+            <li class="slider_slides-item slider_slides-item__active"><img class="slider_slides-item-image" src="${this.product.image}"></li>
+            <li class="slider_slides-item"><img class="slider_slides-item-image" src="${this.product.image}"></li>
+            <li class="slider_slides-item"><img class="slider_slides-item-image" src="${this.product.image}"></li>
           </ul>
         </div>
         <div class="slider_preview-wrapper">
-          <img class="slider_preview" src="https://img.youtube.com/vi/855ObNTgD1E/0.jpg">
+          <img class="slider_preview" src="${this.product.image}">
           <p class="slider_preview-description">
             Video: How is a faulted Altivar drive reset?
           </p>

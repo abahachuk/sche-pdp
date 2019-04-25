@@ -7,6 +7,29 @@
   "price": "182",
   "currency": "USD",
   "documents": {},
+  "related_products": [
+    {
+      "name": "EVF2S22P02",
+      "image": "https://download.schneider-electric.com/files?p_Doc_Ref=PB115030&p_File_Type=rendition_1500_jpg",
+      "description": "EVlink PARKING Floor Standing 22KW 1xT2 EV",
+      "type": "Charging station",
+      "price": "184.62 USD"
+    },
+    {
+      "name": "EVF2S22P02",
+      "image": "https://download.schneider-electric.com/files?p_Doc_Ref=PB115030&p_File_Type=rendition_1500_jpg",
+      "description": "EVlink PARKING Floor Standing 22KW 1xT2 EV",
+      "type": "Charging station",
+      "price": "184.62 USD"
+    },
+    {
+      "name": "EVF2S22P02",
+      "image": "https://download.schneider-electric.com/files?p_Doc_Ref=PB115030&p_File_Type=rendition_1500_jpg",
+      "description": "EVlink PARKING Floor Standing 22KW 1xT2 EV",
+      "type": "Charging station",
+      "price": "184.62 USD"
+    }
+  ],
   "information": {
     "characteristics": {
       "main": {
@@ -42,7 +65,23 @@
         "Product end of life instructions": "Available"
       }
     },
-    "documents_and_downloads": {},
+    "documents_and_downloads": [
+      {
+        "name": "Product Datasheet",
+        "type": "pdf",
+        "url": "https://hello.com"
+      },
+      {
+        "name": "Instruction Sheet",
+        "type": "pdf",
+        "url": "https://hello.com"
+      },
+      {
+        "name": "Catalog",
+        "type": "pdf",
+        "url": "https://hello.com"
+      }
+    ],
     "technical_faqs": {},
     "additional_information": {}
   }

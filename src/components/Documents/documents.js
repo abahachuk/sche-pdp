@@ -1,6 +1,12 @@
 import { LitElement, html, css } from 'lit-element';
 
 class Documents extends LitElement {
+  static get properties() {
+    return {
+      product: { type: Object },
+    };
+  }
+
   static get styles() {
     return css`
       .documents {
@@ -45,9 +51,9 @@ class Documents extends LitElement {
     return html`
       <div class="documents">
         <ul class="documents_list">
-          <li class="documents_item"><a class="documents_link" href="">Product Datasheet</a></li>
-          <li class="documents_item"><a class="documents_link" href="">Product Datasheet</a></li>
-          <li class="documents_item"><a class="documents_link" href="">Product Datasheet</a></li>
+          ${this.product.information['documents_and_downloads'].map(document => html`
+            <li class="documents_item"><a class="documents_link" href=${document.url}>${document.name}</a></li>
+        ` )}
         </ul>
       </div>
     `;
