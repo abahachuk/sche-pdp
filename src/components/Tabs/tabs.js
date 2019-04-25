@@ -1,7 +1,5 @@
 import { LitElement, html, css } from 'lit-element';
 
-import '../Table';
-
 class Tabs extends LitElement {
   static get styles() {
     return css`
@@ -79,7 +77,7 @@ class Tabs extends LitElement {
                 <h4 class="tabs_section-title">Characteristics</h4>
               </header>
               <section class="tabs_section-content">
-                <x-table></x-table>
+                <slot></slot>
               </section>
             </li>
           </ul>

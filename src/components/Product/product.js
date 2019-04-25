@@ -6,7 +6,6 @@ import { store } from '../../redux/store.js';
 import '../Slider';
 
 class Product extends connect(store)(LitElement) {
-
   static get styles() {
     return css`
       .product {
@@ -109,28 +108,26 @@ class Product extends connect(store)(LitElement) {
 
   static get properties() {
     return {
-      name: { type: String },
-      description: { type: String },
-      price: { type: Number },
-      currency: { type: String },
+      product: { type: Object },
     };
   }
 
   constructor() {
     super();
-    this.name = '';
-    this.description = '';
-    this.price = 0;
-    this.currency = '';
+    this.product = {
+      name: '',
+      description: '',
+      price: 0,
+      currency: '',
+    };
   }
 
   addToCart() {
-
     store.dispatch(addToCart({
-      name: this.name,
-      description: this.description,
-      price: this.price,
-      currency: this.currency,
+      name: this.product.name,
+      description: this.product.description,
+      price: this.product.price,
+      currency: this.product.currency,
     }));
   }
 
@@ -139,12 +136,12 @@ class Product extends connect(store)(LitElement) {
       <div class="product">
         <div class="product_card">
           <div class="product_main-info">
-            <x-slider></x-slider>
+            <x-slider .product=${this.product}></x-slider>
           </div>
           <div class="product_info">
             <a class="product_view-all-link" href="">View all EVlink private company's car park</a>
-            <p class="product_id">${this.name}</p>
-            <p class="product_description">${this.description}</p>
+            <p class="product_id">${this.product.name}</p>
+            <p class="product_description">${this.product.description}</p>
             <a class="product_show-more-characteristics-link" href="">Show more characteristics</a>
             <button @click=${this.addToCart}>Add to cart</button>
           </div>
@@ -157,7 +154,7 @@ class Product extends connect(store)(LitElement) {
                         Price
                       </div>
                       <div class="product_info-box-item-value">
-                        <b>${this.price} ${this.currency}</b>
+                        <b>${this.product.price} ${this.product.currency}</b>
                       </div>
                     </li>
                 </div>

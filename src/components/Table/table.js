@@ -1,6 +1,13 @@
 import { LitElement, html, css } from 'lit-element';
 
 class Table extends LitElement {
+  static get properties() {
+    return {
+      data: { type: Object },
+      caption: { type: String },
+    };
+  }
+
   static get styles() {
     return css`
       .table {
@@ -39,23 +46,13 @@ class Table extends LitElement {
   render() {
     return html`
       <table class="table">
-        <caption class="table_caption">Main</caption>
-        <tr class="table_row">
-          <th class="table_title">range of product</th>
-          <td class="table_value">Altivar 12</td>
-        </tr>
-        <tr class="table_row">
-          <th class="table_title">range of product</th>
-          <td class="table_value">Altivar 12</td>
-        </tr>
-        <tr class="table_row">
-          <th class="table_title">range of product</th>
-          <td class="table_value">Altivar 12</td>
-        </tr>
-        <tr class="table_row">
-          <th class="table_title">range of product</th>
-          <td class="table_value">Altivar 12</td>
-        </tr>
+        <caption class="table_caption">${this.caption}</caption>
+        ${Object.keys(this.data).map(dataKey => html`
+          <tr class="table_row">
+            <th class="table_title">${dataKey}</th>
+            <td class="table_value">${this.data[dataKey]}</td>
+          </tr>
+      ` )}
       </table>
     `;
   }

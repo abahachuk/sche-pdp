@@ -1,6 +1,12 @@
 import { LitElement, html, css } from 'lit-element';
 
 class RelatedProducts extends LitElement {
+  static get properties() {
+    return {
+      product: { type: Object },
+    };
+  }
+
   static get styles() {
     return css`
       .related-products {
@@ -91,61 +97,61 @@ class RelatedProducts extends LitElement {
         </h2>
         <ul class="related-products_list">
           <li class="related-products_item">
-            <a class="related-products_more-link" href="">Related Products (11)</a>
+            <a class="related-products_more-link" href="">Related Products (${this.product['related_products'].length})</a>
             <a href="" class="related-products_card">
               <div class="related-products_card-image-wrapper">
-                <img class="related-products_card-image" src="https://download.schneider-electric.com/files?p_Doc_Ref=PF140099&p_File_Type=rendition_64_gif&default_image=DefaultProductImage.png">
+                <img class="related-products_card-image" src=${this.product['related_products'][0].image}>
               </div>
               <div class="related-products_card-info">
                 <p class="related-products_product-id">
-                  VW3A9317
+                  ${this.product['related_products'][0].name}
                 </p>
                 <p class="related-products_product-description">
-                  voltage converter - for variable speed drive
+                  ${this.product['related_products'][0].description}
                 </p>
                 <p class="related-products_product-price">
                   <span class="related-products_product-price-label">Price:</span>
-                  <b class="related-products_product-price-value">88.00 USD</b>
+                  <b class="related-products_product-price-value">${this.product['related_products'][0].price}</b>
                 </p>
               </div>
             </a>
           </li>
           <li class="related-products_item">
-            <a class="related-products_more-link" href="">Related Products (11)</a>
+            <a class="related-products_more-link" href="">Related Products (${this.product['related_products'].length})</a>
             <a href="" class="related-products_card">
               <div class="related-products_card-image-wrapper">
-                <img class="related-products_card-image" src="https://download.schneider-electric.com/files?p_Doc_Ref=PF140099&p_File_Type=rendition_64_gif&default_image=DefaultProductImage.png">
+                <img class="related-products_card-image" src=${this.product['related_products'][0].image}>
               </div>
               <div class="related-products_card-info">
                 <p class="related-products_product-id">
-                  VW3A9317
+                  ${this.product['related_products'][0].name}
                 </p>
                 <p class="related-products_product-description">
-                  voltage converter - for variable speed drive
+                  ${this.product['related_products'][0].description}
                 </p>
                 <p class="related-products_product-price">
                   <span class="related-products_product-price-label">Price:</span>
-                  <b class="related-products_product-price-value">88.00 USD</b>
+                  <b class="related-products_product-price-value">${this.product['related_products'][0].price}</b>
                 </p>
               </div>
             </a>
           </li>
           <li class="related-products_item">
-            <a class="related-products_more-link" href="">Related Products (11)</a>
+            <a class="related-products_more-link" href="">Related Products (${this.product['related_products'].length})</a>
             <a href="" class="related-products_card">
               <div class="related-products_card-image-wrapper">
-                <img class="related-products_card-image" src="https://download.schneider-electric.com/files?p_Doc_Ref=PF140099&p_File_Type=rendition_64_gif&default_image=DefaultProductImage.png">
+                <img class="related-products_card-image" src=${this.product['related_products'][0].image}>
               </div>
               <div class="related-products_card-info">
                 <p class="related-products_product-id">
-                  VW3A9317
+                  ${this.product['related_products'][0].name}
                 </p>
                 <p class="related-products_product-description">
-                  voltage converter - for variable speed drive
+                  ${this.product['related_products'][0].description}
                 </p>
                 <p class="related-products_product-price">
                   <span class="related-products_product-price-label">Price:</span>
-                  <b class="related-products_product-price-value">88.00 USD</b>
+                  <b class="related-products_product-price-value">${this.product['related_products'][0].price}</b>
                 </p>
               </div>
             </a>
