@@ -22,7 +22,12 @@ class Pdp extends LitElement {
   render() {
     return html`
       <x-breadcrumbs></x-breadcrumbs>
-      <x-product></x-product>
+      <x-product
+        name=${this.product.name}
+        description=${this.product.description}
+        price=${this.product.price}
+        currency=${this.product.currency}
+      ></x-product>
       <x-related-products></x-related-products>
       <x-documents></x-documents>
       <x-tabs></x-tabs>
