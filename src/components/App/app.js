@@ -1,4 +1,5 @@
 import { LitElement, html } from 'lit-element';
+import data from '../../../data';
 
 class App extends LitElement {
   constructor() {
@@ -7,9 +8,7 @@ class App extends LitElement {
   }
 
   async getMockData() {
-    const data = await fetch('http://localhost:5000/api/product');
-
-    return await data.json();
+    return await Promise.resolve(data);
   }
 
   async firstUpdated() {
@@ -25,7 +24,7 @@ class App extends LitElement {
   render() {
     return html`
       <div>
-        <lit-route class="app" path="/product"><x-pdp .product=${this.product}></x-pdp></lit-route>
+        <lit-route class="app" path="/"><x-pdp .product=${this.product}></x-pdp></lit-route>
         <lit-route path="/product-cart"><x-cart></x-cart></lit-route>
       </div>
     `;

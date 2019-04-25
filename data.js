@@ -1,4 +1,4 @@
-{
+export default {
   "id": "EVF2S22P02",
   "name": "EVF2S22P02",
   "image": "https://download.schneider-electric.com/files?p_Doc_Ref=PB115030&p_File_Type=rendition_1500_jpg",
