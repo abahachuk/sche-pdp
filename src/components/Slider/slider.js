@@ -50,8 +50,9 @@ class Slider extends LitElement {
 
       .slider_preview {
         display: block;
-        width: 100%;
+        width: 250px;
         height: 250px;
+        border: 1px solid #e7e6e6;
         margin: 0 0 13px;
       }
 

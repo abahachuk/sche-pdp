@@ -47,19 +47,17 @@ class Product extends connect(store)(LitElement) {
       }
 
       .product_main-info {
-        flex-grow: 1;
+        flex-grow: 2;
         width: 0;
       }
 
       .product_info {
-        flex-grow: 0;
-        width: 368px;
-        min-width: 368px;
+        flex-grow: 2;
+        width: 0;
         padding: 0 20px;
       }
 
       .product_additional-info {
-        width: 0;
         flex-grow: 1;
       }
 
