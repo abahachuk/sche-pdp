@@ -10,11 +10,12 @@ class RelatedProducts extends LitElement {
   static get styles() {
     return css`
       .related-products {
-        margin: 0 0 40px;
+        margin: 0 auto 40px;
+        width: 960px;
       }
 
       .related-products_title {
-        padding: 0 12px;
+        padding: 0;
         margin: 0 0 25px;
         font-size: 20px;
         line-height: 23px;
@@ -30,7 +31,7 @@ class RelatedProducts extends LitElement {
 
       .related-products_item {
         width: 33%;
-        padding: 0 12px;
+        padding: 0 20px 0 0;
       }
 
       .related-products_more-link {

@@ -4,7 +4,8 @@ class Breadcrumbs extends LitElement {
   static get styles() {
     return css`
       .breadcrumbs {
-        margin: 4px 12px 40px;
+        margin: 4px auto 40px;
+        width: 960px;
       }
 
       .breadcrumbs_list {

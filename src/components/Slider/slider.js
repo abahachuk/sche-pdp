@@ -39,7 +39,7 @@ class Slider extends LitElement {
         min-width: 50px;
         width: 50px;
         flex-grow: 0;
-        margin: 0 12px 0 0;
+        margin: 0 20px 0 0;
       }
 
       .slider_preview-wrapper {

@@ -9,7 +9,32 @@ class Product extends connect(store)(LitElement) {
   static get styles() {
     return css`
       .product {
-        margin: 0 12px 55px;
+        margin: 0 auto 55px;
+        width: 960px;
+      }
+
+      .product_add-to-cart-link {
+        color: #42b4e6;
+        font-size: 14px;
+        line-height: 18px;
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      .product_add-to-cart-link:hover {
+        text-decoration: underline;
+      }
+
+      .product_go-to-cart-link {
+        color: #42b4e6;
+        font-size: 14px;
+        line-height: 18px;
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      .product_go-to-cart-link:hover {
+        text-decoration: underline;
       }
 
       .product_view-all-link {
@@ -18,6 +43,11 @@ class Product extends connect(store)(LitElement) {
         line-height: 18px;
         display: inline-block;
         margin: 0 0 15px;
+        text-decoration: none;
+      }
+
+      .product_view-all-link:hover {
+        text-decoration: underline;
       }
 
       .product_show-more-characteristics-link {
@@ -26,6 +56,11 @@ class Product extends connect(store)(LitElement) {
         line-height: 20px;
         display: inline-block;
         margin: 0 0 15px;
+        text-decoration: none;
+      }
+
+      .product_show-more-characteristics-link:hover {
+        text-decoration: underline;
       }
 
       .product_id {
@@ -47,12 +82,12 @@ class Product extends connect(store)(LitElement) {
       }
 
       .product_main-info {
-        flex-grow: 2;
+        flex-grow: 3;
         width: 0;
       }
 
       .product_info {
-        flex-grow: 2;
+        flex-grow: 3;
         width: 0;
         padding: 0 20px;
       }
@@ -66,7 +101,7 @@ class Product extends connect(store)(LitElement) {
       }
 
       .product_info-box-section {
-        padding: 12px 30px;
+        padding: 20px 30px;
         background-color: #fafafa;
         border-bottom: 1px solid #e7e6e6;
       }
@@ -100,6 +135,16 @@ class Product extends connect(store)(LitElement) {
 
       .product_characteristics-item-name {
         margin: 0 0 7px;
+      }
+
+      .product_info-box-item-name {
+        font-size: 14px;
+        line-height: 20px;
+      }
+
+      .product_info-box-item-value {
+        font-size: 14px;
+        line-height: 20px;
       }
     `;
   }
@@ -141,7 +186,6 @@ class Product extends connect(store)(LitElement) {
             <p class="product_id">${this.product.name}</p>
             <p class="product_description">${this.product.description}</p>
             <a class="product_show-more-characteristics-link" href="">Show more characteristics</a>
-            <button @click=${this.addToCart}>Add to cart</button>
           </div>
           <div class="product_additional-info">
             <div class="product_info-box">
@@ -155,11 +199,17 @@ class Product extends connect(store)(LitElement) {
                         <b>${this.product.price} ${this.product.currency}</b>
                       </div>
                     </li>
+                  </ul>
+                </div>
+                <div class="product_info-box-section product_info-box-section__bg-color_secondary">
+                  <a href="" class="product_add-to-cart-link" @click=${this.addToCart}>Add to cart</a>
+                </div>
+                <div class="product_info-box-section product_info-box-section__bg-color_secondary">
+                  <a class="product_go-to-cart-link" href="/product-cart" >GO to cart</a>
                 </div>
             </div>
           </div>
         </div>
-        <div><a href="/product-cart" >GO to cart</a></div>
       </div>
     `;
   }

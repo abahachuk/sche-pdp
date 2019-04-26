@@ -18,8 +18,9 @@ class Documents extends LitElement {
       .documents_list {
         list-style: none;
         padding: 0;
-        margin: 0;
+        margin: 0 auto;
         display: flex;
+        width: 960px;
       }
 
       .documents_item {

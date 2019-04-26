@@ -3,8 +3,14 @@ import { LitElement, html, css } from 'lit-element';
 class Tabs extends LitElement {
   static get styles() {
     return css`
+      .tabs_nav-wrapper {
+        border-top: 1px solid #fafafa;
+        box-shadow: 0 2px 4px 0 rgba(0,0,0,.07);
+      }
+
       .tabs_nav {
-        padding: 0 12px;
+        margin: 0 auto;
+        width: 960px;
       }
 
       .tabs_nav-list {
@@ -33,9 +39,13 @@ class Tabs extends LitElement {
         border-bottom-color: #3dcd58;
       }
 
-      .tabs_content {
-        padding: 25px 12px 0;
+      .tabs_content-wrapper {
         background-color: #fafafa;
+      }
+
+      .tabs_content {
+        margin: 25px auto 0;
+        width: 960px;
       }
 
       .tabs_sections {
@@ -61,26 +71,30 @@ class Tabs extends LitElement {
   render() {
     return html`
       <div class="tabs">
-        <nav class="tabs_nav">
-          <ul class="tabs_nav-list">
-            <li class="tabs_nav-item"><a class="tabs_nav-link tabs_nav-link__active" href="">Characteristics</a></li>
-            <li class="tabs_nav-item"><a class="tabs_nav-link" href="">Characteristics</a></li>
-            <li class="tabs_nav-item"><a class="tabs_nav-link" href="">Characteristics</a></li>
-            <li class="tabs_nav-item"><a class="tabs_nav-link" href="">Characteristics</a></li>
-            <li class="tabs_nav-item"><a class="tabs_nav-link" href="">Characteristics</a></li>
-          </ul>
-        </nav>
-        <div class="tabs_content">
-          <ul class="tabs_sections">
-            <li class="tabs_section">
-              <header class="tabs_section-header">
-                <h4 class="tabs_section-title">Characteristics</h4>
-              </header>
-              <section class="tabs_section-content">
-                <slot></slot>
-              </section>
-            </li>
-          </ul>
+        <div class="tabs_nav-wrapper">
+          <nav class="tabs_nav">
+            <ul class="tabs_nav-list">
+              <li class="tabs_nav-item"><a class="tabs_nav-link tabs_nav-link__active" href="">Characteristics</a></li>
+              <li class="tabs_nav-item"><a class="tabs_nav-link" href="">Characteristics</a></li>
+              <li class="tabs_nav-item"><a class="tabs_nav-link" href="">Characteristics</a></li>
+              <li class="tabs_nav-item"><a class="tabs_nav-link" href="">Characteristics</a></li>
+              <li class="tabs_nav-item"><a class="tabs_nav-link" href="">Characteristics</a></li>
+            </ul>
+          </nav>
+        </div>
+        <div class="tabs_content-wrapper">
+          <div class="tabs_content">
+            <ul class="tabs_sections">
+              <li class="tabs_section">
+                <header class="tabs_section-header">
+                  <h4 class="tabs_section-title">Characteristics</h4>
+                </header>
+                <section class="tabs_section-content">
+                  <slot></slot>
+                </section>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     `;
