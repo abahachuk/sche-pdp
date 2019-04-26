@@ -1,6 +1,6 @@
 {
   "name": "schneider-components",
-  "version": "1.7.0",
+  "version": "1.8.0",
   "description": "POC",
   "main": "index.js",
   "scripts": {
