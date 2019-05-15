@@ -296,11 +296,10 @@ class Cart extends connect(store)(LitElement) {
                                   id="checkbox" readonly=""> <label for="checkbox"
                                   class="checkbox__label cart-table__checkbox"></label>
                               <div class="product-wrapper"><a class="product__img" href="#"><img
-                                          src="https://download.schneider-electric.com/files?p_Doc_Ref=PF080604&amp;p_File_Type=rendition_113_png&amp;default_image=DefaultProductImage.png"
+                                          src="https://download.schneider-electric.com/files?p_Doc_Ref=PB115030&p_File_Type=rendition_1500_jpg"
                                           alt="Schneider Eletric ATV12H018M2 Picture"></a>
-                                  <div class="product__info"><a class="product__link" href="#">ATV12H018M2</a>
-                                      <p class="product__description">variable speed drive ATV12 - 0.18kW - 0.25hp -
-                                          200..240V - 1ph</p>
+                                  <div class="product__info"><a class="product__link" href="#">EVF2S22P02</a>
+                                      <p class="product__description">EVlink PARKING Floor Standing 22KW 1xT2 EV</p>
                                   </div>
                               </div>
                           </div>
@@ -319,7 +318,7 @@ class Cart extends connect(store)(LitElement) {
                                   </svg></button></div>
                       </div>
                       <div class="flex-row third">
-                          <div class="flex-row__subtotal"><span>184.62</span><span
+                          <div class="flex-row__subtotal"><span>182</span><span
                                   class="flex-row__subtotal-currency">USD</span>
                               <figure class="delete-icon"><svg width="20" height="20" viewBox="0 0 20 20" class="icon"
                                       xmlns="http://www.w3.org/2000/svg">
@@ -346,7 +345,7 @@ class Cart extends connect(store)(LitElement) {
               <div class="cart-sidebar__wrapper">
                   <div class="cart-sidebar">
                       <div class="cart-sidebar__section"><span>Total items:</span><span>1</span></div>
-                      <div class="cart-sidebar__section total"><span>184.62</span><span>USD</span></div><button
+                      <div class="cart-sidebar__section total"><span>182</span><span>USD</span></div><button
                           class="cart-sidebar__button-buy">Where to Buy</button>
                   </div>
               </div>
